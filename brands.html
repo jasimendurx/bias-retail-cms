@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Brands | Bias Retail</title>
+    <meta name="description" content="Explore our prestigious portfolio across fashion, beauty, and culinary excellence.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(10,10,11,0.7), rgba(10,10,11,0.9)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2070') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: var(--header-height);
+        }
+        
+        .brand-showcase {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .brand-item {
+            display: flex;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .brand-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .brand-item.reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .brand-item:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .brand-image {
+            flex: 1;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .brand-image img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .brand-item:hover .brand-image img {
+            transform: scale(1.05);
+        }
+
+        .brand-content {
+            flex: 1;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-tag {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .brand-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .brand-item { flex-direction: column !important; }
+            .brand-image { min-height: 300px; }
+            .brand-content { padding: 2rem; }
+            .brand-content h3 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">BIAS RETAIL</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="brands.html" class="active">Brands</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container hero-content">
+            <h1 class="reveal">Our Prestige Portfolio</h1>
+            <p class="reveal">Discover our highly curated selection of globally acclaimed brands defining modern luxury and lifestyle across the region.</p>
+        </div>
+    </div>
+
+    <!-- Brands Showcase -->
+    <section>
+        <div class="container">
+            <div class="brand-showcase">
+                
+                <!-- Brand 1: American Vintage -->
+                <div class="brand-item reveal">
+                    <div class="brand-image">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=1000" alt="American Vintage">
+                    </div>
+                    <div class="brand-content">
+                        <span class="brand-tag">Bias Retail LLC</span>
+                        <h3>American Vintage</h3>
+                        <p>American Vintage represents the intersection of casual wear and luxury, offering timeless, effortless wardrobe essentials. Under Bias Retail LLC, the brand has been continuously reshaping the contemporary fashion landscape through authentic aesthetics and premium textiles.</p>
+                        <a href="#" class="btn btn-outline">Discover More</a>
+                    </div>
+                </div>
+
+                <!-- Brand 2: The Face Shop UAE -->
+                <div class="brand-item reveal">
+                    <div class="brand-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=1000" alt="The Face Shop UAE">
+                    </div>
+                    <div class="brand-content">
+                        <span class="brand-tag">Al Ghurair Retail LLC</span>
+                        <h3>The Face Shop UAE</h3>
+                        <p>Inspired by nature, The Face Shop is a globally renowned beauty pioneer. Proudly operated under Al Ghurair Retail LLC, it brings a rich heritage of natural Korean skincare and cosmetic innovation, delivering unparalleled glow and vitality.</p>
+                        <a href="#" class="btn btn-outline">Discover More</a>
+                    </div>
+                </div>
+
+                <!-- Brand 3: Alain Ducasse -->
+                <div class="brand-item reveal">
+                    <div class="brand-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338988a2e8c0?auto=format&fit=crop&q=80&w=1000" alt="Alain Ducasse">
+                    </div>
+                    <div class="brand-content">
+                        <span class="brand-tag">Bias Restaurant LLC</span>
+                        <h3>Alain Ducasse</h3>
+                        <p>The pinnacle of French gastronomy. Represented by Bias Restaurant LLC, the Alain Ducasse experience elevates fine dining to an art form, melding culinary excellence, legendary hospitality, and unparalleled ambiance.</p>
+                        <a href="#" class="btn btn-outline">Discover More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>BIAS RETAIL</h3>
+                    <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and beyond.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="brands.html">Our Brands</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@biasretail.com">info@biasretail.com</a></li>
+                        <li><a href="tel:+97141234567">+971 4 123 4567</a></li>
+                        <li style="color:var(--text-secondary); font-size:0.9rem;">Dubai, United Arab Emirates</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

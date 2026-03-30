@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Bias Retail</title>
+    <meta name="description" content="Join Bias Retail and shape the future of experiential retail. Explore open positions across fashion, beauty, and culinary excellence.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(10,10,11,0.8), rgba(10,10,11,0.9)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: var(--header-height);
+        }
+
+        .job-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            transition: var(--transition-smooth);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .job-card:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .job-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            .job-meta { flex-direction: column; gap: 0.5rem; }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">BIAS RETAIL</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="brands.html">Brands</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="careers.html" class="active">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <div class="container hero-content">
+            <h1 class="reveal">Join Our Vision</h1>
+            <p class="reveal">Shape the future of experiential retail with a dynamic, innovative, and passionate team.</p>
+        </div>
+    </div>
+
+    <!-- Culture Section -->
+    <section>
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Why Work With Us?</h2>
+                <p>At Bias Retail, we don't just build brands; we cultivate talent. Be part of an ecosystem that thrives on creativity, operational excellence, and leadership.</p>
+            </div>
+            
+            <div class="benefits-grid reveal">
+                <div class="benefit-item glass">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Growth Opportunities</h3>
+                    <p>Continuous learning and clear career progression pathways within our diverse portfolio.</p>
+                </div>
+                <div class="benefit-item glass">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Global Exposure</h3>
+                    <p>Work directly with internationally acclaimed brands across fashion, beauty, and F&B.</p>
+                </div>
+                <div class="benefit-item glass">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Inclusive Culture</h3>
+                    <p>A collaborative and empowering workplace that values every voice and idea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Open Positions</h2>
+                <p>Discover your next career milestone.</p>
+            </div>
+
+            <div class="jobs-list">
+                <div class="job-card reveal">
+                    <div class="job-info">
+                        <h3>Retail Operations Manager</h3>
+                        <div class="job-meta">
+                            <span>📍 Dubai, UAE</span>
+                            <span>🏢 American Vintage</span>
+                            <span>⏱️ Full Time</span>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline">Apply Now</a>
+                </div>
+
+                <div class="job-card reveal">
+                    <div class="job-info">
+                        <h3>Visual Merchandiser</h3>
+                        <div class="job-meta">
+                            <span>📍 Abu Dhabi, UAE</span>
+                            <span>🏢 The Face Shop</span>
+                            <span>⏱️ Full Time</span>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline">Apply Now</a>
+                </div>
+
+                <div class="job-card reveal">
+                    <div class="job-info">
+                        <h3>Guest Experience Executive</h3>
+                        <div class="job-meta">
+                            <span>📍 Dubai, UAE</span>
+                            <span>🏢 Alain Ducasse</span>
+                            <span>⏱️ Full Time</span>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-outline">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>BIAS RETAIL</h3>
+                    <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and beyond.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="brands.html">Our Brands</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@biasretail.com">info@biasretail.com</a></li>
+                        <li><a href="tel:+97141234567">+971 4 123 4567</a></li>
+                        <li style="color:var(--text-secondary); font-size:0.9rem;">Dubai, United Arab Emirates</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

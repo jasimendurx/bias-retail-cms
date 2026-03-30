@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bias Retail | Shaping the Future of Retail</title>
+    <meta name="description" content="Bias Retail curates exceptional retail ecosystems — from premium fashion with American Vintage and Korean beauty with The Face Shop, to world-class cuisine with Alain Ducasse.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ===================== REDESIGNED HERO ===================== */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+            z-index: -2;
+            transform: scale(1.05);
+            animation: heroZoom 12s ease forwards;
+        }
+
+        @keyframes heroZoom {
+            to { transform: scale(1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(5,5,5,0.75) 0%, rgba(10,10,11,0.55) 50%, rgba(5,5,5,0.85) 100%);
+            z-index: -1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(212,175,55,0.12);
+            border: 1px solid rgba(212,175,55,0.35);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.6s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            line-height: 1.08;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s ease forwards 0.2s;
+            opacity: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeUp 1s ease forwards 0.4s;
+            opacity: 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 1s ease forwards 0.6s;
+            opacity: 0;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeUp 1.2s ease forwards 0.8s;
+            opacity: 0;
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent-gold), transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        @keyframes scrollPulse {
+            0% { opacity: 1; height: 40px; }
+            50% { opacity: 0.4; height: 55px; }
+            100% { opacity: 1; height: 40px; }
+        }
+
+        /* Hero stat bar */
+        .hero-stats {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            background: rgba(5,5,5,0.6);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            animation: fadeUp 1s ease forwards 0.9s;
+            opacity: 0;
+        }
+
+        .hero-stat {
+            padding: 1.4rem 3rem;
+            text-align: center;
+            border-right: 1px solid var(--glass-border);
+        }
+
+        .hero-stat:last-child { border-right: none; }
+
+        .hero-stat .stat-number {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .hero-stat .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            display: block;
+        }
+
+        /* ===================== ABOUT US ===================== */
+        .about-section {
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: 'ABOUT';
+            position: absolute;
+            top: 50%;
+            left: -2%;
+            transform: translateY(-50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.015);
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+        .about-image-wrap img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: -2rem;
+            right: -2rem;
+            background: var(--accent-gold);
+            color: #0a0a0b;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+        }
+
+        .about-image-badge .badge-number {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-image-badge .badge-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-tag {
+            display: inline-block;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 2rem 0;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .about-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .about-highlight h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .about-highlight p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ===================== MISSION & VISION ===================== */
+        .mission-vision-section {
+            padding: 8rem 0;
+            background: var(--bg-darker);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .mv-label {
+            display: inline-block;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .mv-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .mv-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 1rem auto 0;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .mv-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        .mv-card:last-child::before {
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(212,175,55,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+
+        .mv-icon-wrap {
+            width: 64px;
+            height: 64px;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .mv-card-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .mv-card h3 {
+            font-size: 1.9rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .mv-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .mv-pillars {
+            margin-top: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .mv-pillar {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .mv-pillar::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ===================== PILLARS SECTION ===================== */
+        .pillars-section {
+            padding: 8rem 0;
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image-badge { right: 1rem; bottom: 1rem; }
+            .mv-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-wrap: wrap; }
+            .hero-stat { flex: 1 1 40%; border-right: none; border-bottom: 1px solid var(--glass-border); }
+            .hero-stat:last-child { border-bottom: none; }
+        }
+
+        @media (max-width: 600px) {
+            .about-highlights { grid-template-columns: 1fr; }
+            .hero-stat { flex: 1 1 100%; }
+            .about-image-wrap img { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">BIAS RETAIL</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="brands.html">Brands</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== REDESIGNED HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Premium Retail Group · Est. 2010
+            </div>
+            <h1>Shaping the Future of<br><em>Experiential Retail</em></h1>
+            <p>From cutting-edge fashion and revolutionary beauty to world-class culinary experiences — we bring legendary global concepts to life across the region.</p>
+            <div class="hero-actions">
+                <a href="brands.html" class="btn btn-primary" id="explore-brands-btn">Explore Our Brands</a>
+                <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="hero-scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Iconic Brands</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Retail Locations</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Team Members</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Years of Excellence</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT US ===== -->
+    <section class="about-section reveal" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1084" alt="Bias Retail team at work">
+                    <div class="about-image-badge">
+                        <span class="badge-number">2010</span>
+                        <span class="badge-text">Founded</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <span class="about-tag">About Us</span>
+                    <h2>A Legacy of Retail<br>Innovation & Prestige</h2>
+                    <div class="about-divider"></div>
+                    <p>Bias Retail is a leading retail management group dedicated to curating world-class brand experiences across the UAE and the wider region. We bring together some of the most iconic names in fashion, beauty, and fine dining under a single, unified vision.</p>
+                    <p>With a passionate team of retail professionals and a relentless pursuit of excellence, we continuously push boundaries to deliver unparalleled customer journeys that resonate on a deeply human level.</p>
+
+                    <div class="about-highlights">
+                        <div class="about-highlight">
+                            <div class="highlight-icon">🏆</div>
+                            <div>
+                                <h4>Award-Winning Operations</h4>
+                                <p>Recognised regionally for retail excellence and brand stewardship.</p>
+                            </div>
+                        </div>
+                        <div class="about-highlight">
+                            <div class="highlight-icon">🌍</div>
+                            <div>
+                                <h4>Global Brand Partners</h4>
+                                <p>Working with iconic international brands trusted worldwide.</p>
+                            </div>
+                        </div>
+                        <div class="about-highlight">
+                            <div class="highlight-icon">💡</div>
+                            <div>
+                                <h4>Innovation-Led Culture</h4>
+                                <p>Embracing modern retail trends to stay ahead of the curve.</p>
+                            </div>
+                        </div>
+                        <div class="about-highlight">
+                            <div class="highlight-icon">🤝</div>
+                            <div>
+                                <h4>People-First Philosophy</h4>
+                                <p>Investing in our teams and communities at every step.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MISSION & VISION ===== -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mv-header reveal">
+                <span class="mv-label">Our Purpose</span>
+                <h2>Mission & Vision</h2>
+                <p>Guided by bold ambition and grounded in a passion for people, every decision we make is shaped by these core beliefs.</p>
+            </div>
+
+            <div class="mv-grid reveal">
+                <!-- Mission -->
+                <div class="mv-card">
+                    <div class="mv-icon-wrap">🎯</div>
+                    <div class="mv-card-label">Our Mission</div>
+                    <h3>Delivering Extraordinary Retail Experiences</h3>
+                    <p>Our mission is to build and operate a portfolio of premium, globally acclaimed brands that deliver outstanding customer experiences. We are committed to setting new benchmarks in service quality, retail innovation, and brand excellence across every touchpoint.</p>
+                    <div class="mv-pillars">
+                        <div class="mv-pillar">Cultivate world-class retail environments</div>
+                        <div class="mv-pillar">Elevate brand standards across every market</div>
+                        <div class="mv-pillar">Empower our people as brand ambassadors</div>
+                        <div class="mv-pillar">Drive sustainable, community-led growth</div>
+                    </div>
+                </div>
+
+                <!-- Vision -->
+                <div class="mv-card">
+                    <div class="mv-icon-wrap">🚀</div>
+                    <div class="mv-card-label">Our Vision</div>
+                    <h3>Leading the Region's Retail Renaissance</h3>
+                    <p>We envision a future where Bias Retail is synonymous with the very best in experiential retail — a group that sets regional trends while inspiring global recognition. We strive to be the partner of choice for the world's most prestigious brands.</p>
+                    <div class="mv-pillars">
+                        <div class="mv-pillar">Become the region's most respected retail group</div>
+                        <div class="mv-pillar">Pioneer multi-sensory consumer journeys</div>
+                        <div class="mv-pillar">Expand our footprint with purpose and precision</div>
+                        <div class="mv-pillar">Create lasting cultural impact through retail</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BRAND PILLARS ===== -->
+    <section class="pillars-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Stand For</h2>
+                <p>Three core pillars that define our approach to building the most coveted retail ecosystem in the region.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="glass glass-card">
+                    <h3>Curated Brands</h3>
+                    <p>Partnering with world-renowned names across Fashion, Beauty, and F&B to deliver prestige and quality to every customer.</p>
+                </div>
+                <div class="glass glass-card">
+                    <h3>Premium Experiences</h3>
+                    <p>Elevating customer journeys through immersive store designs, world-class service standards, and thoughtful brand environments.</p>
+                </div>
+                <div class="glass glass-card">
+                    <h3>Sustainable Growth</h3>
+                    <p>Nurturing brands with a long-term strategic vision, focusing on sustainable and dynamic market expansion that creates lasting value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>BIAS RETAIL</h3>
+                    <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and beyond.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="brands.html">Our Brands</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@biasretail.com">info@biasretail.com</a></li>
+                        <li><a href="tel:+97141234567">+971 4 123 4567</a></li>
+                        <li style="color:var(--text-secondary); font-size:0.9rem;">Dubai, United Arab Emirates</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
