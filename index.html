@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bias Retail | Shaping the Future of Retail</title>
-    <meta name="description" content="Bias Retail curates exceptional retail ecosystems — from premium fashion with American Vintage and Korean beauty with The Face Shop, to world-class cuisine with Alain Ducasse.">
+    <meta name="description"
+        content="Bias Retail curates exceptional retail ecosystems — from premium fashion with American Vintage and Korean beauty with The Face Shop, to world-class cuisine with Alain Ducasse.">
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* ===================== REDESIGNED HERO ===================== */
@@ -29,13 +31,15 @@
         }
 
         @keyframes heroZoom {
-            to { transform: scale(1); }
+            to {
+                transform: scale(1);
+            }
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(5,5,5,0.75) 0%, rgba(10,10,11,0.55) 50%, rgba(5,5,5,0.85) 100%);
+            background: linear-gradient(135deg, rgba(5, 5, 5, 0.75) 0%, rgba(10, 10, 11, 0.55) 50%, rgba(5, 5, 5, 0.85) 100%);
             z-index: -1;
         }
 
@@ -43,8 +47,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(212,175,55,0.12);
-            border: 1px solid rgba(212,175,55,0.35);
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.35);
             color: var(--accent-gold);
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -66,8 +70,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.4); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.4);
+            }
         }
 
         .hero-content h1 {
@@ -129,9 +142,20 @@
         }
 
         @keyframes scrollPulse {
-            0% { opacity: 1; height: 40px; }
-            50% { opacity: 0.4; height: 55px; }
-            100% { opacity: 1; height: 40px; }
+            0% {
+                opacity: 1;
+                height: 40px;
+            }
+
+            50% {
+                opacity: 0.4;
+                height: 55px;
+            }
+
+            100% {
+                opacity: 1;
+                height: 40px;
+            }
         }
 
         /* Hero stat bar */
@@ -143,7 +167,7 @@
             display: flex;
             justify-content: center;
             gap: 0;
-            background: rgba(5,5,5,0.6);
+            background: rgba(5, 5, 5, 0.6);
             backdrop-filter: blur(20px);
             border-top: 1px solid var(--glass-border);
             animation: fadeUp 1s ease forwards 0.9s;
@@ -156,7 +180,9 @@
             border-right: 1px solid var(--glass-border);
         }
 
-        .hero-stat:last-child { border-right: none; }
+        .hero-stat:last-child {
+            border-right: none;
+        }
 
         .hero-stat .stat-number {
             display: block;
@@ -191,7 +217,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 12rem;
             font-weight: 700;
-            color: rgba(255,255,255,0.015);
+            color: rgba(255, 255, 255, 0.015);
             white-space: nowrap;
             pointer-events: none;
             user-select: none;
@@ -224,7 +250,7 @@
             padding: 1.5rem 2rem;
             border-radius: 16px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
         }
 
         .about-image-badge .badge-number {
@@ -288,8 +314,8 @@
         .highlight-icon {
             width: 40px;
             height: 40px;
-            background: rgba(212,175,55,0.1);
-            border: 1px solid rgba(212,175,55,0.25);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.25);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -377,16 +403,16 @@
 
         .mv-card:hover {
             transform: translateY(-8px);
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(212,175,55,0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
         .mv-icon-wrap {
             width: 64px;
             height: 64px;
-            background: rgba(212,175,55,0.08);
-            border: 1px solid rgba(212,175,55,0.2);
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 18px;
             display: flex;
             align-items: center;
@@ -447,21 +473,51 @@
 
         /* ============= RESPONSIVE ============= */
         @media (max-width: 900px) {
-            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .about-image-badge { right: 1rem; bottom: 1rem; }
-            .mv-grid { grid-template-columns: 1fr; }
-            .hero-stats { flex-wrap: wrap; }
-            .hero-stat { flex: 1 1 40%; border-right: none; border-bottom: 1px solid var(--glass-border); }
-            .hero-stat:last-child { border-bottom: none; }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image-badge {
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+
+            .hero-stat {
+                flex: 1 1 40%;
+                border-right: none;
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .hero-stat:last-child {
+                border-bottom: none;
+            }
         }
 
         @media (max-width: 600px) {
-            .about-highlights { grid-template-columns: 1fr; }
-            .hero-stat { flex: 1 1 100%; }
-            .about-image-wrap img { height: 350px; }
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stat {
+                flex: 1 1 100%;
+            }
+
+            .about-image-wrap img {
+                height: 350px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header Navigation -->
@@ -491,7 +547,8 @@
                 Premium Retail Group · Est. 2010
             </div>
             <h1>Shaping the Future of<br><em>Experiential Retail</em></h1>
-            <p>From cutting-edge fashion and revolutionary beauty to world-class culinary experiences — we bring legendary global concepts to life across the region.</p>
+            <p>From cutting-edge fashion and revolutionary beauty to world-class culinary experiences — we bring
+                legendary global concepts to life across the region.</p>
             <div class="hero-actions">
                 <a href="brands.html" class="btn btn-primary" id="explore-brands-btn">Explore Our Brands</a>
                 <a href="contact.html" class="btn btn-outline">Get In Touch</a>
@@ -513,7 +570,7 @@
                 <span class="stat-label">Retail Locations</span>
             </div>
             <div class="hero-stat">
-                <span class="stat-number">500+</span>
+                <span class="stat-number">200+</span>
                 <span class="stat-label">Team Members</span>
             </div>
             <div class="hero-stat">
@@ -528,7 +585,8 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1084" alt="Bias Retail team at work">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1084"
+                        alt="Bias Retail team at work">
                     <div class="about-image-badge">
                         <span class="badge-number">2010</span>
                         <span class="badge-text">Founded</span>
@@ -538,8 +596,27 @@
                     <span class="about-tag">About Us</span>
                     <h2>A Legacy of Retail<br>Innovation & Prestige</h2>
                     <div class="about-divider"></div>
-                    <p>Bias Retail is a leading retail management group dedicated to curating world-class brand experiences across the UAE and the wider region. We bring together some of the most iconic names in fashion, beauty, and fine dining under a single, unified vision.</p>
-                    <p>With a passionate team of retail professionals and a relentless pursuit of excellence, we continuously push boundaries to deliver unparalleled customer journeys that resonate on a deeply human level.</p>
+                    <p>BIAS Retail LLC is a dynamic retail franchise organization established in 2012 with a clear
+                        mission: to bring exceptional international brands to the Middle East and elevate the region’s
+                        retail landscape. With deep-rooted market expertise and a passion for innovation, we specialize
+                        in building and scaling select global brands across Fashion, Beauty, and Hospitality</p>
+                    <p>Over the years, our portfolio has grown to include iconic names such as American Vintage, The
+                        Face Shop UAE, and hospitality concepts associated with the culinary excellence of Alain
+                        Ducasse. Each partnership reflects our commitment to quality, authenticity, and customer‑centric
+                        retailing.</p>
+                    <p>At BIAS Retail LLC, we pride ourselves on crafting fresh and engaging retail platforms that
+                        deliver memorable shopping and lifestyle experiences. We work closely with industry-leading
+                        partners to ensure that our stores consistently exceed customer expectations — from curated
+                        selections to immersive brand environments.
+                    <p>
+                    <p>Our approach is built on long-term, mutually rewarding relationships with global brands, enabling
+                        us to introduce distinctive concepts, world-class products, and premium experiences to customers
+                        across the Middle East.
+                    <p>
+                    <p>With a focus on Fashion & Footwear, Beauty & Lifestyle, and Hospitality, we continue to drive
+                        growth by bringing in-demand international brands closer to local audiences, while upholding the
+                        highest operational and service standards.
+                    <p>
 
                     <div class="about-highlights">
                         <div class="about-highlight">
@@ -582,7 +659,8 @@
             <div class="mv-header reveal">
                 <span class="mv-label">Our Purpose</span>
                 <h2>Mission & Vision</h2>
-                <p>Guided by bold ambition and grounded in a passion for people, every decision we make is shaped by these core beliefs.</p>
+                <p>Guided by bold ambition and grounded in a passion for people, every decision we make is shaped by
+                    these core beliefs.</p>
             </div>
 
             <div class="mv-grid reveal">
@@ -591,7 +669,9 @@
                     <div class="mv-icon-wrap">🎯</div>
                     <div class="mv-card-label">Our Mission</div>
                     <h3>Delivering Extraordinary Retail Experiences</h3>
-                    <p>Our mission is to build and operate a portfolio of premium, globally acclaimed brands that deliver outstanding customer experiences. We are committed to setting new benchmarks in service quality, retail innovation, and brand excellence across every touchpoint.</p>
+                    <p>Our mission is to build and operate a portfolio of premium, globally acclaimed brands that
+                        deliver outstanding customer experiences. We are committed to setting new benchmarks in service
+                        quality, retail innovation, and brand excellence across every touchpoint.</p>
                     <div class="mv-pillars">
                         <div class="mv-pillar">Cultivate world-class retail environments</div>
                         <div class="mv-pillar">Elevate brand standards across every market</div>
@@ -605,7 +685,9 @@
                     <div class="mv-icon-wrap">🚀</div>
                     <div class="mv-card-label">Our Vision</div>
                     <h3>Leading the Region's Retail Renaissance</h3>
-                    <p>We envision a future where Bias Retail is synonymous with the very best in experiential retail — a group that sets regional trends while inspiring global recognition. We strive to be the partner of choice for the world's most prestigious brands.</p>
+                    <p>We envision a future where Bias Retail is synonymous with the very best in experiential retail —
+                        a group that sets regional trends while inspiring global recognition. We strive to be the
+                        partner of choice for the world's most prestigious brands.</p>
                     <div class="mv-pillars">
                         <div class="mv-pillar">Become the region's most respected retail group</div>
                         <div class="mv-pillar">Pioneer multi-sensory consumer journeys</div>
@@ -622,21 +704,25 @@
         <div class="container">
             <div class="section-header">
                 <h2>What We Stand For</h2>
-                <p>Three core pillars that define our approach to building the most coveted retail ecosystem in the region.</p>
+                <p>Three core pillars that define our approach to building the most coveted retail ecosystem in the
+                    region.</p>
             </div>
 
             <div class="grid grid-3">
                 <div class="glass glass-card">
                     <h3>Curated Brands</h3>
-                    <p>Partnering with world-renowned names across Fashion, Beauty, and F&B to deliver prestige and quality to every customer.</p>
+                    <p>Partnering with world-renowned names across Fashion, Beauty, and F&B to deliver prestige and
+                        quality to every customer.</p>
                 </div>
                 <div class="glass glass-card">
                     <h3>Premium Experiences</h3>
-                    <p>Elevating customer journeys through immersive store designs, world-class service standards, and thoughtful brand environments.</p>
+                    <p>Elevating customer journeys through immersive store designs, world-class service standards, and
+                        thoughtful brand environments.</p>
                 </div>
                 <div class="glass glass-card">
                     <h3>Sustainable Growth</h3>
-                    <p>Nurturing brands with a long-term strategic vision, focusing on sustainable and dynamic market expansion that creates lasting value.</p>
+                    <p>Nurturing brands with a long-term strategic vision, focusing on sustainable and dynamic market
+                        expansion that creates lasting value.</p>
                 </div>
             </div>
         </div>
@@ -648,7 +734,8 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>BIAS RETAIL</h3>
-                    <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and beyond.</p>
+                    <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and
+                        beyond.</p>
                     <div class="footer-social">
                         <a href="#" class="social-link" aria-label="LinkedIn">in</a>
                         <a href="#" class="social-link" aria-label="Instagram">IG</a>
@@ -681,11 +768,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Terms of Use</a></p>
+                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#"
+                        style="color:var(--text-secondary);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#"
+                        style="color:var(--text-secondary);">Terms of Use</a></p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
