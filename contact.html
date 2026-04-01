@@ -5,106 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Bias Retail</title>
     <meta name="description" content="Get in touch with Bias Retail. We'd love to hear from you — for partnerships, brand enquiries, media requests, or general questions.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Page Hero */
         .page-hero {
-            height: 55vh;
-            min-height: 420px;
-            background: linear-gradient(rgba(5,5,5,0.6), rgba(10,10,11,0.92)),
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: var(--header-height);
-            position: relative;
-        }
-
-        .page-hero-tag {
-            display: inline-block;
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-        }
-
-        .page-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-        }
-
-        .page-hero p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 550px;
-            margin: 0 auto;
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
         }
 
         /* ===== Contact Info Cards ===== */
         .contact-info-section {
             padding: 5rem 0 2rem;
-            background: var(--bg-darker);
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
         }
 
         .contact-info-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
         }
 
         .contact-info-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
             padding: 2.5rem;
             text-align: center;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
 
         .contact-info-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(212,175,55,0.3);
-            box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+            border-color: var(--accent-border);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(28,26,23,0.09);
         }
 
         .contact-info-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(212,175,55,0.1);
-            border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 16px;
+            width: 52px;
+            height: 52px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 1.5rem;
+            font-size: 1.3rem;
+            margin: 0 auto 1.4rem;
         }
 
         .contact-info-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 300;
             margin-bottom: 0.6rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
         }
 
         .contact-info-card p,
         .contact-info-card a {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            line-height: 1.75;
+            font-weight: 300;
         }
 
-        .contact-info-card a:hover {
-            color: var(--accent-gold);
-        }
+        .contact-info-card a:hover { color: var(--accent); }
 
         /* ===== Contact Form & Map ===== */
-        .contact-main-section {
-            padding: 6rem 0;
-        }
+        .contact-main-section { padding: 6rem 0; }
 
         .contact-layout {
             display: grid;
@@ -113,25 +82,29 @@
             align-items: start;
         }
 
-        /* Form side */
-        .contact-form-wrap h2 {
-            font-size: 2.2rem;
-            margin-bottom: 0.6rem;
+        .contact-form-wrap h2,
+        .contact-map-wrap h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-form-wrap > p {
+        .contact-form-wrap > p,
+        .contact-map-wrap > p {
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
-            font-size: 1rem;
+            font-size: 0.93rem;
+            font-weight: 300;
         }
 
         .form-section-label {
-            display: inline-block;
-            color: var(--accent-gold);
-            font-size: 0.8rem;
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.8rem;
+            letter-spacing: 3.5px;
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
 
         .contact-form {
@@ -149,46 +122,47 @@
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.45rem;
         }
 
         .form-group label {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             color: var(--text-secondary);
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 10px;
-            padding: 0.85rem 1.2rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.82rem 1.1rem;
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: var(--transition-smooth);
+            font-size: 0.92rem;
+            font-weight: 300;
+            transition: var(--transition);
             outline: none;
             width: 100%;
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(161,161,170,0.5);
+            color: var(--text-muted);
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: rgba(212,175,55,0.5);
-            background: rgba(255,255,255,0.05);
-            box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+            border-color: var(--accent-border);
+            background: var(--bg-elevated);
         }
 
         .form-group select option {
-            background: #0a0a0b;
+            background: var(--bg);
             color: var(--text-primary);
         }
 
@@ -202,43 +176,32 @@
             align-items: center;
             gap: 1.5rem;
             flex-wrap: wrap;
+            margin-top: 0.4rem;
         }
 
         .btn-gold {
-            background: var(--accent-gold);
-            color: #0a0a0b;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            background: var(--accent);
+            color: var(--bg);
+            font-weight: 500;
         }
 
         .btn-gold:hover {
-            background: #c9a227;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            background: #b8935a;
             transform: translateY(-2px);
         }
 
         .form-note {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-        }
-
-        /* Map / right side */
-        .contact-map-wrap h2 {
-            font-size: 2.2rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .contact-map-wrap > p {
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 300;
         }
 
         .map-container {
-            border-radius: 20px;
+            border-radius: var(--radius-sm);
             overflow: hidden;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--border);
             height: 320px;
-            background: var(--glass-bg);
+            background: var(--bg-surface);
             position: relative;
         }
 
@@ -246,71 +209,77 @@
             width: 100%;
             height: 100%;
             border: none;
-            filter: invert(90%) hue-rotate(180deg) saturate(0.6) brightness(0.7);
+            filter: invert(90%) hue-rotate(180deg) saturate(0.5) brightness(0.65);
         }
 
         .map-overlay-badge {
             position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            background: rgba(5,5,5,0.85);
+            bottom: 1.2rem;
+            left: 1.2rem;
+            background: rgba(12,12,13,0.9);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 0.8rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.7rem 1.1rem;
         }
 
         .map-overlay-badge strong {
             display: block;
-            font-size: 0.9rem;
-            margin-bottom: 0.2rem;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            margin-bottom: 0.15rem;
         }
 
         .map-overlay-badge span {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-secondary);
+            font-weight: 300;
         }
 
         .office-hours {
-            margin-top: 2rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
+            margin-top: 1.8rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.8rem;
         }
 
         .office-hours h4 {
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
         }
 
         .hours-row {
             display: flex;
             justify-content: space-between;
-            font-size: 0.9rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.88rem;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid var(--border);
             color: var(--text-secondary);
+            font-weight: 300;
         }
 
         .hours-row:last-child { border-bottom: none; }
-        .hours-row span:first-child { color: var(--text-primary); font-weight: 500; }
+        .hours-row span:first-child { color: var(--text-primary); font-weight: 400; }
 
-        /* ===== Success / Error States ===== */
         .form-success {
             display: none;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
+            background: rgba(34, 197, 94, 0.07);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.4rem;
             color: #86efac;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             margin-top: 0.5rem;
+            font-weight: 300;
         }
 
-        /* Response */
         @media (max-width: 900px) {
             .contact-layout { grid-template-columns: 1fr; gap: 4rem; }
             .contact-info-grid { grid-template-columns: 1fr; }
@@ -328,7 +297,10 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">BIAS RETAIL</a>
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="Bias Retail" class="logo-img" onerror="this.style.display='none'">
+                    <span class="logo-text">Bias Retail</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="brands.html">Brands</a></li>
@@ -343,10 +315,10 @@
 
     <!-- Page Hero -->
     <div class="page-hero">
-        <div class="container hero-content">
-            <div class="page-hero-tag reveal">Get In Touch</div>
-            <h1 class="reveal">Contact Us</h1>
-            <p class="reveal">We'd love to hear from you. Whether it's a partnership inquiry, media request, or a general question — we're here.</p>
+        <div class="container">
+            <span class="section-label">Get In Touch</span>
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you — partnership inquiries, media requests, or general questions.</p>
         </div>
     </div>
 
@@ -354,25 +326,19 @@
     <section class="contact-info-section">
         <div class="container">
             <div class="contact-info-grid">
+                <!-- Our Office -->
                 <div class="contact-info-card reveal">
                     <div class="contact-info-icon">📍</div>
                     <h3>Our Office</h3>
-                    <p>Bias Retail Headquarters<br>Dubai, United Arab Emirates</p>
+                    <p>Al Fatan Plaza, Alquoz<br>Dubai, United Arab Emirates</p>
                 </div>
+                <!-- Email Us -->
                 <div class="contact-info-card reveal">
                     <div class="contact-info-icon">✉️</div>
                     <h3>Email Us</h3>
                     <p>
-                        <a href="mailto:info@biasretail.com">info@biasretail.com</a><br>
-                        <a href="mailto:careers@biasretail.com">careers@biasretail.com</a>
-                    </p>
-                </div>
-                <div class="contact-info-card reveal">
-                    <div class="contact-info-icon">📞</div>
-                    <h3>Call Us</h3>
-                    <p>
-                        <a href="tel:+97141234567">+971 4 123 4567</a><br>
-                        <span>Mon–Fri, 9AM–6PM GST</span>
+                        <a href="mailto:contact@biasretail.com">contact@biasretail.com</a><br>
+                        <a href="mailto:hr@biasretail.com">hr@biasretail.com</a>
                     </p>
                 </div>
             </div>
@@ -387,6 +353,7 @@
                 <!-- Contact Form -->
                 <div class="contact-form-wrap reveal">
                     <span class="form-section-label">Send a Message</span>
+                    <div class="accent-line"></div>
                     <h2>Let's Start a Conversation</h2>
                     <p>Fill in the form below and our team will get back to you within 1–2 business days.</p>
 
@@ -456,19 +423,15 @@
                         </iframe>
                         <div class="map-overlay-badge">
                             <strong>Bias Retail HQ</strong>
-                            <span>Dubai, United Arab Emirates</span>
+                            <span>Al Fatan Plaza, Alquoz, Dubai</span>
                         </div>
                     </div>
 
                     <div class="office-hours">
-                        <h4>🕐 Office Hours</h4>
+                        <h4>🕐 HQ Working Hours</h4>
                         <div class="hours-row">
-                            <span>Monday – Thursday</span>
-                            <span>9:00 AM – 6:00 PM</span>
-                        </div>
-                        <div class="hours-row">
-                            <span>Friday</span>
-                            <span>9:00 AM – 1:00 PM</span>
+                            <span>Monday – Friday</span>
+                            <span>8:00 AM – 5:00 PM</span>
                         </div>
                         <div class="hours-row">
                             <span>Saturday – Sunday</span>
@@ -486,11 +449,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>BIAS RETAIL</h3>
+                    <h3>Bias Retail</h3>
                     <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and beyond.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="https://www.linkedin.com/company/al-ghurair-retail/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+                        <a href="https://www.instagram.com/thefaceshopuae/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
                         <a href="#" class="social-link" aria-label="Twitter">X</a>
                     </div>
                 </div>
@@ -513,32 +476,42 @@
                 <div class="footer-links">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:info@biasretail.com">info@biasretail.com</a></li>
-                        <li><a href="tel:+97141234567">+971 4 123 4567</a></li>
-                        <li style="color:var(--text-secondary); font-size:0.9rem;">Dubai, United Arab Emirates</li>
+                        <li><a href="mailto:contact@biasretail.com">contact@biasretail.com</a></li>
+                        <li><a href="mailto:hr@biasretail.com">hr@biasretail.com</a></li>
+                        <li style="color:var(--text-muted); font-size:0.85rem; font-weight:300;">Al Fatan Plaza, Alquoz, Dubai</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:var(--text-secondary);">Terms of Use</a></p>
+                <p>&copy; 2026 Bias Retail LLC. All Rights Reserved. &nbsp;|&nbsp; <a href="#" style="color:var(--text-muted);">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:var(--text-muted);">Terms of Use</a></p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script>
-        // Simple form submission handler
+        // Form submits to contact@biasretail.com via mailto
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('contact-submit-btn');
             const success = document.getElementById('form-success');
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
+            const name  = (document.getElementById('first-name').value + ' ' + document.getElementById('last-name').value).trim();
+            const email = document.getElementById('email').value;
+            const type  = document.getElementById('inquiry-type').value;
+            const msg   = document.getElementById('message').value;
+
+            // Build mailto link
+            const subject = encodeURIComponent('Enquiry: ' + (type || 'General') + ' — ' + name);
+            const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+            window.location.href = 'mailto:contact@biasretail.com?subject=' + subject + '&body=' + body;
+
+            btn.textContent = 'Opening Email Client...';
             setTimeout(() => {
-                btn.textContent = 'Message Sent ✓';
                 success.style.display = 'block';
+                btn.textContent = 'Send Message →';
+                btn.disabled = false;
                 this.reset();
-            }, 1200);
+            }, 1800);
         });
     </script>
 </body>
