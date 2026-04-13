@@ -1,10 +1,13 @@
 import { Users, ShoppingBag, TrendingUp, Eye } from "lucide-react";
 
 import { listBrands } from "@/lib/brands";
+import { requireAdminSession } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
+  await requireAdminSession("/admin");
+
   const brandCount = (await listBrands()).length;
 
   return (

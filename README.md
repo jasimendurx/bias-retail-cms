@@ -29,6 +29,8 @@ Node 25 currently produces Prisma engine warnings during install, so a current L
 
 Copy `.env.example` to `.env.local` and fill in real values.
 
+The Next.js runtime, Prisma config, and local seed script all load `.env.local`, so one file is enough for local development.
+
 | Variable | Purpose |
 | --- | --- |
 | `DATABASE_URL` | Primary Prisma connection string |
@@ -66,6 +68,8 @@ Seed the database from the local script:
 npm run db:seed
 ```
 
+This seeds both the brand catalog and the editable site-content payload used by `/admin/content`.
+
 You can also seed through the HTTP route at `POST /api/seed`.
 
 - In development, the route is open by default unless `SEED_SECRET` is set.
@@ -82,6 +86,38 @@ In non-production environments, the protected admin area can be accessed without
 ```bash
 npm run lint
 npm run build
+```
+
+## Cloudflare Workers
+
+This repo is prepared for Cloudflare Workers using the OpenNext adapter.
+
+Install dependencies and build for Cloudflare locally:
+
+```bash
+npm run cf:build
+```
+
+Preview the Worker locally after creating a `.dev.vars` file or setting equivalent local Worker secrets:
+
+```bash
+npm run cf:preview
+```
+
+Required Cloudflare runtime/build variables mirror the app envs:
+
+- `DATABASE_URL`
+- `DIRECT_URL`
+- `ADMIN_USERNAME`
+- `ADMIN_PASSWORD`
+- `SEED_SECRET`
+
+For Cloudflare Workers Builds or dashboard-based Git deployments, set those values in both build variables and Worker secrets so the Next build and runtime see the same configuration.
+
+To deploy from a machine authenticated with Cloudflare:
+
+```bash
+npm run cf:deploy
 ```
 
 ## Deployment Notes

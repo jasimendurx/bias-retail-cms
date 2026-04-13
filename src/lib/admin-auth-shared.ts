@@ -1,10 +1,6 @@
-import { ensureServerEnv } from "@/lib/load-env";
-
 const ADMIN_SESSION_COOKIE_NAME = "bias-admin-session";
 const ADMIN_SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 7;
 const SESSION_SCOPE = "bias-admin";
-
-ensureServerEnv();
 
 type AdminCredentials = {
   username: string;

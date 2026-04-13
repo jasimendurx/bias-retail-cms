@@ -1,8 +1,10 @@
 import "server-only";
 
-import { isDatabaseConfigured, prisma } from "@/lib/prisma";
+import { getPrisma, isDatabaseConfigured } from "@/lib/prisma";
 
 export async function listBrands() {
+  const prisma = getPrisma();
+
   if (!isDatabaseConfigured() || !prisma) {
     return [];
   }
@@ -13,6 +15,8 @@ export async function listBrands() {
 }
 
 export async function getBrandById(id: string) {
+  const prisma = getPrisma();
+
   if (!isDatabaseConfigured() || !prisma) {
     return null;
   }

@@ -3,6 +3,7 @@ import { Edit, Plus, Trash2 } from "lucide-react";
 
 import { deleteBrand } from "@/actions/brands";
 import { listBrands } from "@/lib/brands";
+import { requireAdminSession } from "@/lib/admin-auth";
 
 const statusMessages = {
   created: "Brand created.",
@@ -17,6 +18,8 @@ export default async function AdminBrands({
 }: {
   searchParams: Promise<{ status?: string }>;
 }) {
+  await requireAdminSession("/admin/brands");
+
   const [{ status }, brands] = await Promise.all([searchParams, listBrands()]);
   const statusMessage = status
     ? statusMessages[status as keyof typeof statusMessages]

@@ -1,6 +1,4 @@
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is not configured.");
-}
+const SITE_CONTENT_BLOCK_ID = "site-content";
 
 const brands = [
   {
@@ -36,12 +34,29 @@ const brands = [
 ];
 
 async function main() {
-  const [{ PrismaPg }, { PrismaClient }] = await Promise.all([
+  const nextEnvModule = await import("@next/env");
+  const { loadEnvConfig } = nextEnvModule.default ?? nextEnvModule;
+
+  loadEnvConfig(
+    process.cwd(),
+    process.env.NODE_ENV === "development",
+    console,
+    true,
+  );
+
+  const connectionString = process.env.DIRECT_URL || process.env.DATABASE_URL;
+
+  if (!connectionString) {
+    throw new Error("DATABASE_URL or DIRECT_URL is not configured.");
+  }
+
+  const [{ default: defaultSiteContent }, { PrismaPg }, { PrismaClient }] = await Promise.all([
+    import("./src/lib/default-site-content.js"),
     import("@prisma/adapter-pg"),
     import("@prisma/client"),
   ]);
 
-  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+  const adapter = new PrismaPg({ connectionString });
   const prisma = new PrismaClient({ adapter });
 
   try {
@@ -49,7 +64,17 @@ async function main() {
     for (const brand of brands) {
       await prisma.brand.create({ data: brand });
     }
-    console.log("Database seeded with brands successfully!");
+
+    await prisma.contentBlock.deleteMany({});
+    await prisma.contentBlock.create({
+      data: {
+        id: SITE_CONTENT_BLOCK_ID,
+        title: "Site Content",
+        content: JSON.stringify(defaultSiteContent, null, 2),
+      },
+    });
+
+    console.log("Database seeded with brands and site content successfully!");
   } finally {
     await prisma.$disconnect();
   }

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { updateBrand } from "@/actions/brands";
+import { requireAdminSession } from "@/lib/admin-auth";
 import { getBrandById } from "@/lib/brands";
 
 import BrandForm from "../BrandForm";
@@ -13,6 +14,9 @@ export default async function EditBrandPage({
   params: Promise<{ brandId: string }>;
 }) {
   const { brandId } = await params;
+
+  await requireAdminSession(`/admin/brands/${brandId}`);
+
   const brand = await getBrandById(brandId);
 
   if (!brand) {

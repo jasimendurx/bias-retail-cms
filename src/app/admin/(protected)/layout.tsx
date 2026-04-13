@@ -2,15 +2,12 @@ import Link from "next/link";
 import { LayoutDashboard, LogOut, ShoppingBag, Type } from "lucide-react";
 
 import { logoutAdmin } from "@/actions/admin-auth";
-import { requireAdminSession } from "@/lib/admin-auth";
 
 export default async function ProtectedAdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  await requireAdminSession();
-
   return (
     <div className="flex h-screen overflow-hidden bg-neutral-950 text-neutral-200">
       <aside className="flex w-64 flex-col justify-between border-r border-white/10 bg-black">

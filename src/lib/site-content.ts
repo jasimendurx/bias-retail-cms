@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { isDatabaseConfigured, prisma } from "@/lib/prisma";
+import { getPrisma, isDatabaseConfigured } from "@/lib/prisma";
 import {
   LEGACY_HOME_ABOUT_BLOCK_ID,
   SITE_CONTENT_BLOCK_ID,
@@ -34,6 +34,7 @@ export function serializeSiteContent(siteContent: SiteContent) {
 
 export const getSiteContent = cache(async (): Promise<SiteContent> => {
   const fallback = cloneDefaultSiteContent();
+  const prisma = getPrisma();
 
   if (!isDatabaseConfigured() || !prisma) {
     return fallback;

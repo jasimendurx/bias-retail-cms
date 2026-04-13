@@ -1,9 +1,13 @@
 import { createBrand } from "@/actions/brands";
+import { requireAdminSession } from "@/lib/admin-auth";
+
 import BrandForm from "../BrandForm";
 
 export const dynamic = "force-dynamic";
 
-export default function NewBrand() {
+export default async function NewBrand() {
+  await requireAdminSession("/admin/brands/new");
+
   return (
     <BrandForm
       action={createBrand}

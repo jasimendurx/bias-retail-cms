@@ -1,10 +1,13 @@
 import SiteContentEditor from "../../content/SiteContentEditor";
 
+import { requireAdminSession } from "@/lib/admin-auth";
 import { getSiteContent } from "@/lib/site-content";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminContentPage() {
+  await requireAdminSession("/admin/content");
+
   const siteContent = await getSiteContent();
 
   return (

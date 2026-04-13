@@ -5,21 +5,45 @@ import { PrismaClient } from "@prisma/client";
 ensureServerEnv();
 
 const connectionString = process.env.DATABASE_URL || process.env.DIRECT_URL;
+const isCloudflareDeployment = process.env.DEPLOYMENT_TARGET === "cloudflare";
 
 const globalForPrisma = globalThis as unknown as {
 	prisma?: PrismaClient;
 };
 
-export const prisma =
-	connectionString
-		? globalForPrisma.prisma ??
-			new PrismaClient({
-				adapter: new PrismaPg({ connectionString }),
-			})
+function createPrismaClient() {
+	if (!connectionString) {
+		return null;
+	}
+
+	return new PrismaClient({
+		adapter: new PrismaPg({
+			connectionString,
+			...(isCloudflareDeployment ? { maxUses: 1 } : {}),
+		}),
+	});
+}
+
+const productionPrisma =
+	process.env.NODE_ENV === "production" && !isCloudflareDeployment
+		? createPrismaClient()
 		: null;
 
-if (process.env.NODE_ENV !== "production" && prisma) {
-	globalForPrisma.prisma = prisma;
+export function getPrisma() {
+	if (!connectionString) {
+		return null;
+	}
+
+	if (isCloudflareDeployment) {
+		return createPrismaClient();
+	}
+
+	if (process.env.NODE_ENV === "production") {
+		return productionPrisma;
+	}
+
+	globalForPrisma.prisma ??= createPrismaClient() ?? undefined;
+	return globalForPrisma.prisma ?? null;
 }
 
 export function isDatabaseConfigured() {
@@ -27,6 +51,8 @@ export function isDatabaseConfigured() {
 }
 
 export function requirePrisma() {
+	const prisma = getPrisma();
+
 	if (!prisma) {
 		throw new Error("DATABASE_URL is not configured.");
 	}
