@@ -401,10 +401,32 @@
                             <span class="form-note">We respect your privacy. No spam, ever.</span>
                         </div>
 
-                        <div class="form-success" id="form-success">
-                            ✅ Thank you! Your message has been received. We'll be in touch shortly.
-                        </div>
                     </form>
+
+                    <!-- Branded Thank-You Panel (hidden until submit) -->
+                    <div id="thankyou-panel" style="display:none; margin-top:2rem;
+                         background:#fff; border:1px solid var(--border);
+                         border-radius:var(--radius-md); padding:2.5rem;
+                         text-align:center; animation: fadeUp 0.6s ease forwards;">
+                        <div style="margin-bottom:1.4rem;">
+                            <img src="assets/logo.png" alt="Bias Retail"
+                                 style="height:52px; width:auto; margin:0 auto; display:block;"
+                                 onerror="this.style.display='none'">
+                        </div>
+                        <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem;
+                                    font-weight:300; color:var(--text-primary); margin-bottom:0.6rem;">
+                            Thank You!
+                        </div>
+                        <p style="color:var(--text-secondary); font-size:0.92rem; font-weight:300;
+                                  line-height:1.75; max-width:380px; margin:0 auto 1rem;">
+                            Your message has been received. A member of our team at
+                            <strong style="color:var(--accent);">Bias Retail</strong>
+                            will get back to you within 1–2 business days.
+                        </p>
+                        <p style="color:var(--text-muted); font-size:0.8rem; font-weight:300;">
+                            📧 We'll reply to you at your provided email address.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Map + Hours -->
@@ -449,7 +471,10 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>Bias Retail</h3>
+                    <a href="index.html" class="footer-logo-wrap">
+                        <img src="assets/logo.png" alt="Bias Retail" class="footer-logo-img" onerror="this.style.display='none'">
+                        <span class="footer-brand-name">Bias Retail</span>
+                    </a>
                     <p>Curating exceptional retail ecosystems and empowering premier global brands across the UAE and beyond.</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/company/al-ghurair-retail/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
@@ -490,28 +515,43 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Form submits to contact@biasretail.com via mailto
+        // Send form details via mailto to contact@biasretail.com, then show branded thank-you
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = document.getElementById('contact-submit-btn');
-            const success = document.getElementById('form-success');
-            const name  = (document.getElementById('first-name').value + ' ' + document.getElementById('last-name').value).trim();
-            const email = document.getElementById('email').value;
-            const type  = document.getElementById('inquiry-type').value;
-            const msg   = document.getElementById('message').value;
 
-            // Build mailto link
-            const subject = encodeURIComponent('Enquiry: ' + (type || 'General') + ' — ' + name);
-            const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+            const btn    = document.getElementById('contact-submit-btn');
+            const panel  = document.getElementById('thankyou-panel');
+            const form   = this;
+
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName  = document.getElementById('last-name').value.trim();
+            const name      = (firstName + ' ' + lastName).trim();
+            const email     = document.getElementById('email').value.trim();
+            const phone     = document.getElementById('phone').value.trim();
+            const type      = document.getElementById('inquiry-type').value;
+            const msg       = document.getElementById('message').value.trim();
+
+            // Build e-mail body with all form details
+            const subject = encodeURIComponent('[Bias Retail] Enquiry: ' + (type || 'General') + ' — ' + name);
+            const body    = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Phone: ' + (phone || 'Not provided') + '\n' +
+                'Inquiry Type: ' + (type || 'General') + '\n\n' +
+                'Message:\n' + msg
+            );
+
+            // Open the user's mail client directed at contact@biasretail.com
             window.location.href = 'mailto:contact@biasretail.com?subject=' + subject + '&body=' + body;
 
+            // Show branded thank-you panel after short delay
             btn.textContent = 'Opening Email Client...';
-            setTimeout(() => {
-                success.style.display = 'block';
-                btn.textContent = 'Send Message →';
-                btn.disabled = false;
-                this.reset();
-            }, 1800);
+            btn.disabled = true;
+            setTimeout(function() {
+                form.style.display = 'none';
+                panel.style.display = 'block';
+                panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1600);
         });
     </script>
 </body>

@@ -364,6 +364,31 @@ footer {
   margin-bottom: 4rem;
 }
 
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* Legacy h3 inside footer-brand (fallback) */
 .footer-brand h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
