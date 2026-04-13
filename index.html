@@ -87,18 +87,43 @@
 
     /* animated industry label above heading */
     .hero-industry {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
+      font-size: 0.78rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 4px;
-      color: var(--accent);
-      margin-bottom: 1.8rem;
+      color: #ffffff;
+      background: rgba(168, 120, 48, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0.42rem 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.9s ease forwards 0.3s;
       min-height: 1em;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.4s ease;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+
+    .hero-industry::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.85;
+      animation: pillPulse 1.8s ease infinite;
+    }
+
+    @keyframes pillPulse {
+      0%, 100% { opacity: 0.85; transform: scale(1); }
+      50%       { opacity: 0.4;  transform: scale(1.4); }
     }
 
     .hero-content h1 {
@@ -515,7 +540,7 @@
     <div class="hero-slides">
       <div class="hero-slide slide-fashion active" data-label="Fashion"></div>
       <div class="hero-slide slide-beauty"  data-label="Beauty & Wellness"></div>
-      <div class="hero-slide slide-fb"      data-label="Fine Dining & F&B"></div>
+      <div class="hero-slide slide-fb"      data-label="F&B"></div>
     </div>
 
     <!-- Overlay -->
@@ -570,28 +595,24 @@
 
           <div class="about-highlights">
             <div class="about-highlight">
-              <span class="highlight-icon">🏆</span>
               <div>
                 <h4>Award-Winning</h4>
                 <p>Recognised regionally for retail excellence and brand stewardship.</p>
               </div>
             </div>
             <div class="about-highlight">
-              <span class="highlight-icon">🌍</span>
               <div>
                 <h4>Global Partners</h4>
                 <p>Working with iconic international brands trusted worldwide.</p>
               </div>
             </div>
             <div class="about-highlight">
-              <span class="highlight-icon">💡</span>
               <div>
                 <h4>Innovation-Led</h4>
                 <p>Embracing modern retail trends to stay ahead of the curve.</p>
               </div>
             </div>
             <div class="about-highlight">
-              <span class="highlight-icon">🤝</span>
               <div>
                 <h4>People-First</h4>
                 <p>Investing in our teams and communities at every step.</p>
