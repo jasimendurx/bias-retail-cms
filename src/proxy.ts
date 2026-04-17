@@ -8,7 +8,7 @@ import {
   verifyAdminSessionToken,
 } from "@/lib/admin-auth-shared";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   if (allowOpenAdminInDevelopment()) {
     return NextResponse.next();
   }
